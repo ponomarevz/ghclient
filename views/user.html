@@ -1,19 +1,23 @@
 	
 		
-		<div class="allUser row col-md-9">
+		<div class="allUser col-md-10">
 		<h1> Информация о пользователе GitHub </h1>
 			<div class = "col-sm-2 col-md-3 fotoBar">
 			<div class="row">
-						<div class = "col-xs-5 col-sm-12"><img src="{{ userInform.avatar_url }}" alt="аватар"></div>
-						<div class="col-sm-3"><p class ="name">{{ userInform.name}}</p>
-						<p class ="login">{{ userInform.login}}</p>
-						<hr>
-						<p><a href="mailto:userInform.email">{{ userInform.email}}</a></p>
-						<p><a href="{{ userInform.blog}}">{{ userInform.blog}}</a></p>
-						<p><a href="{{ userInform.repos_url">{{ userInform.repos_url}}</a></p>
-						<p>{{ userInform.location}}</p>
-						<hr>
-						<span class="badge">folowers-{{userInform.followers}}</span></div>
+						<div class = "col-xs-5 col-sm-12">
+							<img src="{{ userInform.avatar_url }}" alt="аватар">
+						</div>
+						<div class="col-sm-3">
+							<p class ="name">{{ userInform.name}}</p>
+							<p class ="login">{{ userInform.login}}</p>
+							<hr>
+							<p><a href="mailto:userInform.email">{{ userInform.email}}</a></p>
+							<p><a href="{{ userInform.blog}}">{{ userInform.blog}}</a></p>
+							<p><a href="{{ userInform.repos_url">{{ userInform.repos_url}}</a></p>
+							<p>{{ userInform.location}}</p>
+							<hr>
+							<span class="badge">folowers-{{userInform.followers}}</span>
+						</div>
 			</div>
 						
 			</div>
@@ -28,14 +32,14 @@
 								<div class="list-group">
 									<div ng-repeat="repo in filtered = (repoData | filter:repoName)" class="list-group-item">
 										<div ng-class="getClassRow(repo)" ng-click = "selItem(repo)">
-											<div class="col-md-8">
+											<div class="col-md-7">
 												<h4>{{repo.name}}
 													<small>{{repo.description}}</small>
 												</h4>
 											</div>
-											<div class="col-md-4">
+											<div class="col-md-5">
 											<p>Изменен:
-												<small>{{repo.updated_at | date : short : timezone}}</small>
+												<small>{{repo.updated_at | date : short : timezone}}</small><br>
 												Cоздан:
 												<small>{{repo.created_at| date : short : timezone}}</small></p>
 											</div>

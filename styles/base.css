@@ -32,6 +32,7 @@
 	text-shadow: 2px 2px 4px white,
 				2px -2px 4px white;
  }
+ 
 
 .footer {
   padding: 40px 0;
@@ -65,6 +66,7 @@ float:none;
 }
 .fotoBar {
 	margin-bottom: 10px;
+	white-space: nowrap;
 }
  .fotoBar img , .fotoBar hr {
 	margin-top:5px;
@@ -72,29 +74,43 @@ float:none;
 	margin-right:5px;
 }
 .fotoBar p, .fotoBar span  {
-	margin-left:20px;
+	margin-left:10px;
 	margin-top: 3px;
 }
 
 .fotoBar img {
-	width: 90%;
+	width: 95%;
 	border-radius:3px;
+	
 	
 }
 .fotoBar .name {
-	font-size:18px;
+	font-size:16px;
+	font-weight: bold;
 }
 .fotoBar .login {
 	font-size:15px;
 	font-weight: bold;
 }
-.fotoBar p {
+.fotoBar p,.fotoBar hr  {
 	font-size:12px;
+	overflow:hidden;
+	min-width:160px;
 }
-.how:hover {
-	cursor: pointer;
-	background-color: #80c9f1;
-	transition: 200ms;
-	-moz-transition: 200ms;
-	-webkit-transition: 200ms;
+.navbar .navbar-nav > li > a {
+  font-size: 16px;
+   color: #999;
 }
+
+.how:hover, .navbar .navbar-nav > li:hover,
+.navbar .navbar-nav > li > a:hover {
+  background-color: #52b6ec;
+  color: #fff;
+  transition: 0.7s;
+  cursor:pointer;
+  }
+
+  .navbar .navbar-nav > li > a:focus {
+	background-color: #52b6ec;
+	color: #fff;
+  }

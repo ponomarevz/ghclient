@@ -1,36 +1,101 @@
 <!doctype html>
-<html ng-app="appGit">
-<head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-	<link rel="stylesheet" href="styles/base.css">
-	<title>GitHub клиент</title>
-</head>
-<body class="body">
-	<div class="heder">
-      <div class="container">
-	       <span><a class = "navbar-brand logo" href="#">GitHub клиент </a></span>
-	  </div>
-	</div>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/base.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="appGit">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div class="header">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand logo" href="#/">GitApi</a>
+					
+          </div>
+
+          <div class="collapse navbar-collapse" id="js-navbar-collapse">
 	
-	<div class="container animate">
+			<ul class="nav navbar-nav">
+              <li><a ng-href = "#/UserList">Пользователи</a></li>
+              <li><a ng-href="#/about">Что эТо</a></li>
+            </ul>
+			
+			<div class="col-sm-4 col-md-4">
+				<form class="navbar-form" role="search">
+					<div class="input-group">
+						<input type="text" ng-model= "param" class="form-control" placeholder="Пошук" name="q">
+						<div class="input-group-btn">
+							<a class="btn btn-default" type="button" ng-href="/#search/{{param}}"><i class="glyphicon glyphicon-search"></i></a>
+						</div>
+					</div>
+				</form>
+			</div>
+			
+           
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+	<div class="container animate" style="margin-top:-20px;">
 		<div  class="container animate" ng-view=""></div>
 	</div>
 	
 	<div class="footer">
-      <p>Резюме Пономарева Евгения Юрьевича </p>
+      <p>Пономарев Евгений Юрьевич </p>
 	  <p><a href="mailto:euponomarev.gmail.com">euponomarev.gmail.com</a></p>
 	</div>
-	
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js"></script>
-	
-	<script src="scripts/appGit.js"></script>
-	<script src="scripts/service/service.js"></script>
-	<script src="scripts/router.js"></script>
 
-		
-</body>           
 
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/appGit.js"></script>
+		<script src="scripts/service/service.js"></script>
+		<script src="scripts/router.js"></script>
+        <!-- endbuild -->
+</body>
 </html>

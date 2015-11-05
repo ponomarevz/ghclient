@@ -71,25 +71,16 @@ angular
 			} 
 			return res;
 		};
-	}).controller('appGitComitsUsController', function ($scope, $http, $routeParams) {
-		
-	
-		
+	}).controller('appGitComitsUsController', function ($scope, commits, $routeParams) {
+		$scope.commitsData = commits;
 		$scope.userName = $routeParams.userName;
 		$scope.repoName = $routeParams.repoName;
-		var res = 'https://api.github.com/repos/' + $scope.userName + '/' + $scope.repoName + '/commits';
-		$http.get(res).success(function (data) {
-			$scope.commitsData = data;
-		});
+		
 	})
-	.controller('appGitForksUsController', function ($scope, $http, $routeParams) {
-		
-		
+	.controller('appGitForksUsController', function ($scope, forks, $routeParams) {
+		$scope.forksData = forks;
 		$scope.userName = $routeParams.userName;
 		$scope.repoName = $routeParams.repoName;
-		var res = 'https://api.github.com/repos/' + $scope.userName + '/' + $scope.repoName + '/forks';
-		$http.get(res).success(function (data) {
-			$scope.forksData = data;
-		});
+				
 	});
 	

@@ -46,8 +46,56 @@
 		};
 	};
 	
-
+	angular
+		.module('appGit')
+			.service('UserCommits', UserCommits);
+	
+	function UserCommits($http) {
+		//------------ИЗВЛЕЯЕНИЕ ДАННЫХ
+		this.getUserCommits = function (name, repo) {
+			
+			var res = 'https://api.github.com/repos/' + name + '/' + repo + '/commits';
+			return $http.get(res).then(function (response) {
+				return response;
+			});
+			
+		};
+	};
+	
+	angular
+		.module('appGit')
+			.service('UserForks', UserForks);
+			
+	function UserForks($http) {
+		//------------ИЗВЛЕЯЕНИЕ ДАННЫХ
+		this.getUserForks = function (name, repo) {
+			
+			var res = 'https://api.github.com/repos/' + name + '/' + repo + '/forks';
+				return $http.get(res).then(function (response) {
+					return response;
+			});
+			
+		};
+	};
+	
+	angular
+		.module('appGit')
+			.service('UserSearch', UserSearch);
+			
+	function UserSearch($http) {
+		//------------ИЗВЛЕЯЕНИЕ ДАННЫХ
+		this.getUser = function (name) {
+			
+			var res = "https://api.github.com/search/users?q=" +  name + "+repos:>=0+followers:>=0";
+			return $http.get(res).then(function (response) {
+					return response;
+			});
+			
+		};
+	};
+	
 })();
+
 
 
 //$http.get($scope.userInform.repos_url).success(function(data){
