@@ -1,0 +1,43 @@
+
+		
+		<div class="allUser row col-sm-9">
+		<h1> Информация о комитах репозитария GitHub </h1>
+						<div class="panel panel-info" >
+							<div class="panel-heading">
+								<div class="panel-title">Коммиты репозитария
+									<h4 style="display:inline"><a ng-href="#/user/{{userName}}/{{repoName}}">{{repoName}}</a></h4>
+									пользователя 
+									<h4 style="display:inline"><a ng-href="#/user/{{userName}}">{{userName}}</a></h4>
+								</div>
+								<span class="badge" style="float:right; font-size: 80%; position: relative; top:-20px">{{commitsData.length}}</span>
+							</div>
+							<div style="padding-top:10px" class="panel-body" >
+							
+								<div class="list-group">
+									<div ng-repeat=" commit in commitsData" class="list-group-item ">
+										<div class="row">
+											<div class="col-md-4">
+											<img src="{{ commit.committer.avatar_url }}" alt="аватарка пользователя" style = "width:50px;">
+											<h5><a ng-href="#/user/{{commit.committer.login}}">{{commit.commit.committer.name}}</a></h5>
+											<small>{{commit.commit.committer.date | date : short : timezone}}</small>
+											
+											</div>
+												<div class="col-md-4">
+													<small><em>{{ commit.commit.message}}</em></small>
+												</div>
+												<div class="col-md-4">
+													<p style = "overflow:hidden"><small>{{commit.sha}}</small><p>
+												</div>
+											</div>
+										
+										</div>
+									</div>
+							</div>
+
+							</div>
+						</div>
+					
+			
+
+		
+

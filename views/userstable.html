@@ -1,0 +1,38 @@
+<div class="allUser container col-sm-9">
+		<h2> Cпиок пользователей GitHub </h2>
+		
+			<div class = "list-group">
+				<div class = "row list-group-item" style="padding-top:0; paddin-left:0">
+				<form class="navbar-form" role="search">
+               <div class="input-group">
+                    <input ng-model="sear_param" type="text" class="form-control" placeholder="Поиск" name="q">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit" ng-click="search()"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </div>
+			</form>
+								
+				</div>
+				<div class = "row list-group-item list-group-item-info">
+					<span class = "col-xs-1 col-sm-2">ID</span>
+					<span class = "col-xs-4 col-sm-3">Логин</span>
+					<span class = "col-xs-2 col-sm-2">Аватарка</span>
+					<span class = "col-xs-5 col-sm-5">Email</span>
+				</div>
+				<a class = "row list-group-item" ng-repeat="item in users" ng-href="#/user/{{item.login}}">
+					<span class = "col-xs-1 col-sm-2">{{ item.id }}</span>
+					<span class = "col-xs-4 col-sm-3">{{ item.login }}</span>
+					<span class = "col-xs-2 col-sm-2"><img src="{{ item.avatar_url }}" alt="аватар пользователя"></span>
+				<span class = "col-xs-5 col-sm-5">fsd</span>
+				</a>
+				<br>
+				<span>
+					<a ng-href="#/usersList/{{prevPage()}}">Назад</a> 
+						<span class = "page">Стрфница:{{ page }}</span>
+					<a ng-href="#/usersList/{{nextPage()}}">Вперед</a>
+				</span>
+			</div>
+		</div>
+	
+	
+	

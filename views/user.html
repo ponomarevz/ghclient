@@ -1,0 +1,59 @@
+	
+		
+		<div class="allUser row col-md-9">
+		<h1> Информация о пользователе GitHub </h1>
+			<div class = "col-sm-2 col-md-3 fotoBar">
+			<div class="row">
+						<div class = "col-xs-5 col-sm-12"><img src="{{ userInform.avatar_url }}" alt="аватар"></div>
+						<div class="col-sm-3"><p class ="name">{{ userInform.name}}</p>
+						<p class ="login">{{ userInform.login}}</p>
+						<hr>
+						<p><a href="mailto:userInform.email">{{ userInform.email}}</a></p>
+						<p><a href="{{ userInform.blog}}">{{ userInform.blog}}</a></p>
+						<p><a href="{{ userInform.repos_url">{{ userInform.repos_url}}</a></p>
+						<p>{{ userInform.location}}</p>
+						<hr>
+						<span class="badge">folowers-{{userInform.followers}}</span></div>
+			</div>
+						
+			</div>
+					<div class = " col-sm-10 col-md-9">
+						<div class="panel panel-info" >
+							<div class="panel-heading">
+								<div class="panel-title">Репозитарии пользователя</div>
+								<span class="badge" style="float:right; font-size: 80%; position: relative; top:-20px">{{ filtered.length}}</span>
+							</div>
+							<div style="padding-top:10px" class="panel-body" >
+							
+								<div class="list-group">
+									<div ng-repeat="repo in filtered = (repoData | filter:repoName)" class="list-group-item">
+										<div ng-class="getClassRow(repo)" ng-click = "selItem(repo)">
+											<div class="col-md-8">
+												<h4>{{repo.name}}
+													<small>{{repo.description}}</small>
+												</h4>
+											</div>
+											<div class="col-md-4">
+											<p>Изменен:
+												<small>{{repo.updated_at | date : short : timezone}}</small>
+												Cоздан:
+												<small>{{repo.created_at| date : short : timezone}}</small></p>
+											</div>
+										</div>
+										
+										<div ng-if = "isSelItem(repo)">
+											<hr>
+											<a ng-href="#/forks/{{userInform.login}}/{{repo.name}}" style = "margin-right:10px;">Ветки репозитария</a>
+											<a ng-href="#/comits/{{userInform.login}}/{{repo.name}}">Комиты репозитария</a>
+											<br><strong><a ng-href="#/user/{{userInform.login}}">Вcе репозитарии пользователя</a></strong>
+										</div>
+										
+									</div>
+							</div>
+
+							</div>
+						</div>
+					</div>
+		
+		</div>
+	

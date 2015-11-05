@@ -1,0 +1,100 @@
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate {
+	animation-duration: 0.4s;
+    animation-fill-mode: both;
+    animation-name: fadeInRight;
+	-moz-animation-duration: 0.4s;
+	-moz-animation-name: fadeInRight;
+	-moz-animation-fill-mode: both;
+	-webkit-animation-duration: 0.4s;
+	-webkit-animation-fill-mode: both;
+	-webkit-animation-name: fadeInRight;
+  }
+
+.heder {
+  background-color: #E7E7E7;
+  box-shadow: inset 0 -1px 2px rgba(0,0,0,.1);
+  }
+ .navbar-brand.logo {
+	color: #80c9f1;
+	text-shadow: 2px 2px 4px white,
+				2px -2px 4px white;
+ }
+
+.footer {
+  padding: 40px 0;
+  color: #999;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: 1px solid #e5e5e5;
+  clear: both;
+}
+
+.allUser {
+float:none;
+	margin-left: auto;
+	margin-right: auto;
+} 
+
+.allUser img {
+	padding: 0;
+	margin:0;
+	width: 25px;
+	border-radius:3px;
+}
+.allUser .page {
+	margin-left:10px;
+	margin-right:10px;
+}
+
+.fotoBar, .fotoBar img , .fotoBar p, .fotoBar hr {
+	padding: 0;
+	margin:0;
+}
+.fotoBar {
+	margin-bottom: 10px;
+}
+ .fotoBar img , .fotoBar hr {
+	margin-top:5px;
+	margin-left:5px;
+	margin-right:5px;
+}
+.fotoBar p, .fotoBar span  {
+	margin-left:20px;
+	margin-top: 3px;
+}
+
+.fotoBar img {
+	width: 90%;
+	border-radius:3px;
+	
+}
+.fotoBar .name {
+	font-size:18px;
+}
+.fotoBar .login {
+	font-size:15px;
+	font-weight: bold;
+}
+.fotoBar p {
+	font-size:12px;
+}
+.how:hover {
+	cursor: pointer;
+	background-color: #80c9f1;
+	transition: 200ms;
+	-moz-transition: 200ms;
+	-webkit-transition: 200ms;
+}

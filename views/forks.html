@@ -1,0 +1,46 @@
+
+				
+
+		<div class="allUser row col-sm-9">
+		<h1> Информация о Ветках репозитария GitHub </h1>
+						<div class="panel panel-info" >
+							<div class="panel-heading">
+								<div class="panel-title">Ветки репозитария 
+									<h4 style="display:inline"><a ng-href="#/user/{{userName}}/{{repoName}}">{{repoName}}</a></h4> пользователя 
+									<h4 style="display:inline"><a ng-href="#/user/{{userName}}">{{userName}}</a></h4>
+								</div>
+								<span class="badge" style="float:right; font-size: 80%; position: relative; top:-20px">{{forksData.length}}</span>
+							</div>
+							<div style="padding-top:10px" class="panel-body" >
+						
+								<div class="list-group">
+									<div ng-repeat=" fork in forksData" class="list-group-item ">
+										<div class="row">
+											
+											<div class="col-md-2">
+												<img src="{{ fork.owner.avatar_url }}" alt= "аватар пользователя" style = "width:50px;">
+												<h5><a ng-href="#/user/{{fork.owner.login}}">{{fork.owner.login}}</a></h5>
+											</div>
+											<div class="col-md-3">
+												<h4>{{ fork.name }}</h4>
+												<small>{{fork.created_at | date : short : timezone}}</small>
+											</div>
+											<div class="col-md-3">
+												<small><em>{{ fork.description}}</em></small>
+											</div>
+											<div class="col-md-4">
+												<a href="{{fork.html_url}}" target="_blank"><p style = "overflow:hidden">{{fork.html_url}}</p></a>
+											</div>
+											</div>
+										
+										</div>
+									</div>
+							</div>
+
+							</div>
+						</div>
+	
+
+
+		
+
