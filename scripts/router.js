@@ -5,19 +5,28 @@
 		$routeProvider
 			.when('/usersList/:page', {templateUrl: 'views/userstable.html', controller: 'appGitUsersController', 
 					resolve: {
-						users: function ( $route, UserService, SinglUserService)  {
+						users: function ( $route, UserService, SinglUserService, $q)  {
 								var page = parseInt($route.current.params.page);			
 								var re = {};
-								return UserService.getUsers(page).then(function(response) {
+								return UserService.getUsers(page)
+								.then(function(response) {
 									re = response.data;
+									var promisAr = [];
 									//----------может както развернуть это в промис????
 									for(var it in re) {
 										(function(it){
-											SinglUserService.getSinglUser(re[it].login).then(function(response){
-												re[it].email = response.data.email;
+											var promis = SinglUserService.getSinglUser(re[it].login)
+											.then(function(response){
+												re[it].email = response.data.email || "нет мыла";
+											}, function(error){
+												re[it].email = "что то пошло не так";
 											});
+											promisAr.push(promis);
 										})(it);					
 									}
+									return $q.all(promisAr);
+								})
+								.then(function(response){
 									return re;
 								});
 							}

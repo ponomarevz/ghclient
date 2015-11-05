@@ -85,12 +85,11 @@ float:none;
 	
 }
 .fotoBar .name {
-	font-size:16px;
+	font-size:18px;
 	font-weight: bold;
 }
 .fotoBar .login {
 	font-size:15px;
-	font-weight: bold;
 }
 .fotoBar p,.fotoBar hr  {
 	font-size:12px;
