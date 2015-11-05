@@ -15,36 +15,38 @@
 					})
 			.when('/user/:userName', {templateUrl: 'views/user.html', controller: 'appGitSingUsController',
 					resolve: {
-						user: function ( $route, SinglUserService)  {
+						user: function ( $route, SinglUserService, UserRepos)  {
+								//------------------цепочка асинхронных вызовов возвращающи промис
 								var userName = $route.current.params.userName;
-								
-								return SinglUserService.getSinglUser(userName).then(function(response) {
-									return  response.data;									
-								});
-							},
-						repo: function ( $route, UserRepos)  {
-							var userName = $route.current.params.userName;
-							return UserRepos.getUserRepos(userName).then(function(response){
-									return response.data;
+								var re = {};
+								return SinglUserService.getSinglUser(userName)
+									.then(function(response) {
+										re.usInfo = response.data; 
+										return  UserRepos.getUserRepos(userName);
+								}).then(function(response) {
+										re.usRepo = response.data;
+										return re;
 								});
 							}
+						
 						}
 			})
 			.when('/user/:userName/:repoName', {templateUrl: 'views/user.html', controller: 'appGitSingUsController',
 					resolve: {
-						user: function ( $route, SinglUserService)  {
+						user: function ( $route, SinglUserService, UserRepos)  {
+								//------------------цепочка асинхронных вызовов возвращающи промис
 								var userName = $route.current.params.userName;
-								
-								return SinglUserService.getSinglUser(userName).then(function(response) {
-									return  response.data;									
-								});
-							},
-						repo: function ( $route, UserRepos)  {
-							var userName = $route.current.params.userName;
-							return UserRepos.getUserRepos(userName).then(function(response){
-									return response.data;
+								var re = {};
+								return SinglUserService.getSinglUser(userName)
+									.then(function(response) {
+										re.usInfo = response.data; 
+										return  UserRepos.getUserRepos(userName);
+								}).then(function(response) {
+										re.usRepo = response.data;
+										return re;
 								});
 							}
+						
 						}
 			})
 			.when('/comits/:userName/:repoName', {templateUrl: 'views/commits.html', controller: 'appGitComitsUsController'})

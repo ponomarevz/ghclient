@@ -45,14 +45,14 @@ angular
 	
 
 	})
-	.controller('appGitSingUsController', function ($scope, $http, $routeParams, user, repo) {
+	.controller('appGitSingUsController', function ($scope, $http, $routeParams, user) {
 	
 		
 		$scope.userName = $routeParams.userName;
 		$scope.repoName = $routeParams.repoName;
 		
-		$scope.userInform = user;
-		$scope.repoData = repo;
+		$scope.userInform = user.usInfo;
+		$scope.repoData = user.usRepo;
 		
 		
 				
